@@ -3,5 +3,144 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "my-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@o3r/core:component": {
+          "path": "src/components"
+        },
+        "@o3r/core:page": {
+          "path": "src/app"
+        },
+        "@o3r/core:service": {
+          "path": "src/services"
+        },
+        "@o3r/core:store": {
+          "path": "src/store"
+        },
+        "@o3r/core:schematics-update": {
+          "path": "src/schematics"
+        },
+        "@o3r/testing:playwright-scenario": {
+          "path": "e2e-playwright/scenarios"
+        },
+        "@o3r/testing:playwright-sanity": {
+          "path": "e2e-playwright/sanity"
+        }
+      },
+      "root": "apps/my-app",
+      "sourceRoot": "apps/my-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/my-app",
+            "index": "apps/my-app/src/index.html",
+            "main": "apps/my-app/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "apps/my-app/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/my-app/src/favicon.ico",
+              "apps/my-app/src/assets"
+            ],
+            "styles": [
+              "apps/my-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all",
+              "outputPath": "dist"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "apps/my-app/src/environments/environment.ts",
+                  "with": "apps/my-app/src/environments/environment.development.ts"
+                }
+              ]
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "my-app:build:production"
+            },
+            "development": {
+              "browserTarget": "my-app:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "my-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "apps/my-app/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/my-app/src/favicon.ico",
+              "apps/my-app/src/assets"
+            ],
+            "styles": [
+              "apps/my-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "schematics": {
+    "*:*": {
+      "libsDir": "libs",
+      "appsDir": "apps"
+    }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@o3r/core",
+      "@ama-sdk/schematics",
+      "@schematics/angular"
+    ],
+    "analytics": false
   }
 }
