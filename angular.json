@@ -137,6 +137,7 @@
   },
   "cli": {
     "schematicCollections": [
+      "@o3r/testing",
       "@o3r/core",
       "@ama-sdk/schematics",
       "@schematics/angular"

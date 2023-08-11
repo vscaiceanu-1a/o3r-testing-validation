@@ -1,11 +1,24 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/spec",
     "types": [
       "jasmine"
-    ]
+    ],
+    "baseUrl": ".",
+    "lib": [
+      "dom",
+      "es2020",
+      "scripthost"
+    ],
+    "paths": {
+      "@o3r/testing/core": [
+        "node_modules/@o3r/testing/core/angular"
+      ],
+      "@o3r/testing/core/*": [
+        "node_modules/@o3r/testing/core/angular/*"
+      ]
+    }
   },
   "include": [
     "src/**/*.spec.ts",
