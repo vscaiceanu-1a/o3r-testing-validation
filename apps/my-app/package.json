@@ -10,7 +10,7 @@
     "update:otter": "ng update @o3r/core"
   },
   "dependencies": {
-    "@ama-sdk/schematics": "^9.2.0-alpha.17",
+    "@ama-sdk/schematics": "^9.2.0-alpha.28",
     "@angular/animations": "^16.2.0",
     "@angular/common": "^16.2.0",
     "@angular/compiler": "^16.2.0",
@@ -19,7 +19,7 @@
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
-    "@o3r/core": "^9.2.0-alpha.17",
+    "@o3r/core": "^9.2.0-alpha.28",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
@@ -31,8 +31,8 @@
     "@angular-devkit/schematics": "~16.2.0",
     "@angular/cli": "~16.2.0",
     "@angular/compiler-cli": "^16.2.0",
-    "@o3r/dev-tools": "^9.2.0-alpha.17",
-    "@o3r/schematics": "^9.2.0-alpha.17",
+    "@o3r/dev-tools": "^9.2.0-alpha.28",
+    "@o3r/schematics": "^9.2.0-alpha.28",
     "@schematics/angular": "~16.2.0",
     "@types/jasmine": "~4.3.0",
     "globby": "^11.1.0",
